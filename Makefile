@@ -6,11 +6,11 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 20:29:42 by mlagrini          #+#    #+#              #
-#    Updated: 2023/02/25 13:04:20 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/02/26 11:35:52 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC			=	push_swap.c
+SRC			=	push_swap.c ps_errorhandler.c
 OBJS		=	${SRC:.c=.o}
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
@@ -30,7 +30,7 @@ ${LIBFT}:
 		make -C ft_printf
 
 ${NAME}: ${OBJS} ${LIBFT}
-		${CC} ${CFLAGS} ${OBJS} -o $@
+		${CC} ${CFLAGS} ${INCLUDES} ${LIBFT} ${OBJS} -o $@
 
 clean:
 		cd libft && make clean
