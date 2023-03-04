@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlagrini <mlagrini@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:24:04 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/02/24 12:55:40 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/04 10:24:16 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-typedef struct	s_splitdata
+typedef struct s_splitdata
 {
 	int		i;
 	int		j;
@@ -79,7 +79,7 @@ char	**ft_split(char const *s, char c)
 		while (s[var.i] == c)
 			var.i++;
 		if (s[var.i] == '\0')
-			break;
+			break ;
 		var.len = wordlen((char *)s, c);
 		var.strings[var.k] = ft_calloc((var.len + 1), sizeof(char));
 		if (var.strings[var.k] == NULL)
