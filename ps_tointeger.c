@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ps_tointeger.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 12:23:38 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/09 15:14:01 by mlagrini         ###   ########.fr       */
+/*   Created: 2023/03/09 15:02:15 by mlagrini          #+#    #+#             */
+/*   Updated: 2023/03/09 16:51:21 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
-
-typedef struct s_data
+void	to_integer(char	*str, t_data *data)
 {
-	int		i;
-	int		j;
-	int		count;
-	int		*integer;
-	char	**split;
-}				t_data;
+	int			i;
+	static int	j;
 
-int		errors_handler1(char *args, t_data *data);
-int		args_checker(char *str, t_data *data);
-void	to_integer(char	*str, t_data *data);
-
-#endif
+	i = 0;
+	data->split = ft_split(str, ' ');
+	while (data->split[i])
+		data->integer[j++] = ft_atoi(data->split[i++]);
+	i = 0;
+	while (data->split[i])
+		free (data->split[i++]);
+	free (data->split);
+}

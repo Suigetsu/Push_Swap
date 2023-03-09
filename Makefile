@@ -6,11 +6,11 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 20:29:42 by mlagrini          #+#    #+#              #
-#    Updated: 2023/02/26 11:35:52 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/03/09 15:15:45 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC			=	push_swap.c ps_errorhandler.c
+SRC			=	main.c ps_checkargs.c ps_tointeger.c
 OBJS		=	${SRC:.c=.o}
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
