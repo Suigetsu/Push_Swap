@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:35:18 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/09 16:50:59 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/10 12:22:11 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int ac, char **av)
 	data.i = 1;
 	while (av[data.i])
 		to_integer(av[data.i++], &data);
-	while (data.integer[data.j])
+	check_duplicated(data.integer, &data);
+	while (data.j < data.count)
 		ft_printf("%d\n", data.integer[data.j++]);
 }
