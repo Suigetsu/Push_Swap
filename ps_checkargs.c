@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 21:39:48 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/09 16:51:11 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/12 16:50:01 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static void	print_error(t_data *data)
 	int	i;
 
 	i = 0;
+	(void)data;
 	while (data->split[i])
 		free (data->split[i++]);
 	free (data->split);
@@ -56,8 +57,6 @@ int	args_checker(char *str, t_data *data)
 	i = 0;
 	count = 0;
 	data->split = ft_split(str, ' ');
-	if (data->split[i] == NULL)
-		print_error(data);
 	while (data->split[i])
 	{
 		check_num(data->split[i++], data);

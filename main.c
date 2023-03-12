@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:35:18 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/12 16:33:57 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/12 16:55:07 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,16 @@ void	create_node(t_stack_a **node, int data)
 
 void printList(t_stack_a *head) {
     while (head != NULL) {
-        printf("%d ", head->data);
+        printf("%d\n", head->data);
         head = head->next;
     }
-    printf("\n");
 }
 
 int	main(int ac, char **av)
 {
 	t_data		data;
 	t_stack_a	*a;
+	t_stack_b	*b;
 
 	a = NULL;
 	ft_bzero(&data, sizeof(t_data));

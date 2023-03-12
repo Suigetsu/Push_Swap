@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:23:38 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/12 16:27:15 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/12 16:53:54 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,12 @@ typedef struct s_stack_a
 {
 	int					data;
 	struct s_stack_a	*next;
-	struct s_stack_a	*top;
 }				t_stack_a;
 
 typedef struct s_stack_b
 {
-	int					*data;
-	struct s_stack_b	*top;
+	int					data;
+	struct s_stack_b	*next;
 }				t_stack_b;
 
 int			errors_handler1(char *args, t_data *data);

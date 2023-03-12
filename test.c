@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 12:10:27 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/12 15:43:37 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/12 16:51:37 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,41 +19,41 @@ struct Node {
     struct Node *next;
 };
 
-// // Function to add a node to the beginning of the linked list
-// void insertNode(struct Node **head, int data) {
-//     // Create a new node with the given data
-//     struct Node *newNode = (struct Node*) malloc(sizeof(struct Node));
-//     newNode->data = data;
-    
-//     // Set the next pointer of the new node to the current head of the list
-//     newNode->next = *head;
-    
-//     // Update the head of the list to point to the new node
-//     *head = newNode;
-// }
-
-// Function to add a node to the end of the linked list
+// Function to add a node to the beginning of the linked list
 void insertNode(struct Node **head, int data) {
     // Create a new node with the given data
     struct Node *newNode = (struct Node*) malloc(sizeof(struct Node));
     newNode->data = data;
-    newNode->next = NULL;
     
-    // If the list is empty, make the new node the head of the list
-    if (*head == NULL) {
-        *head = newNode;
-        return;
-    }
+    // Set the next pointer of the new node to the current head of the list
+    newNode->next = *head;
     
-    // Traverse the list to find the last node
-    struct Node *last = *head;
-    while (last->next != NULL) {
-        last = last->next;
-    }
-    
-    // Add the new node to the end of the list
-    last->next = newNode;
+    // Update the head of the list to point to the new node
+    *head = newNode;
 }
+
+// // Function to add a node to the end of the linked list
+// void insertNode(struct Node **head, int data) {
+//     // Create a new node with the given data
+//     struct Node *newNode = (struct Node*) malloc(sizeof(struct Node));
+//     newNode->data = data;
+//     newNode->next = NULL;
+    
+//     // If the list is empty, make the new node the head of the list
+//     if (*head == NULL) {
+//         *head = newNode;
+//         return;
+//     }
+    
+//     // Traverse the list to find the last node
+//     struct Node *last = *head;
+//     while (last->next != NULL) {
+//         last = last->next;
+//     }
+    
+//     // Add the new node to the end of the list
+//     last->next = newNode;
+// }
 
 // Function to print the elements of the linked list
 void printList(struct Node *head) {
