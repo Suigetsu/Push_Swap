@@ -6,32 +6,60 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:02:15 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/10 12:25:19 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/12 16:34:12 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	to_integer(char	*str, t_data *data)
+void	to_integer(char	*str, t_data *data, t_stack_a **stack_a)
 {
-	int			i;
-	static int	j;
+	int	i;
 
 	i = 0;
 	data->split = ft_split(str, ' ');
 	while (data->split[i])
-		data->integer[j++] = ft_atoi(data->split[i++]);
+		create_node(stack_a, ft_atoi(data->split[i++]));
 	i = 0;
 	while (data->split[i])
 		free (data->split[i++]);
 	free (data->split);
 }
 
-void	check_duplicated(int *arr, t_data *data)
+int	linkedlen(t_stack_a *stack_a)
+{
+	int	len;
+
+	len = 0;
+	while (stack_a != NULL)
+	{
+		stack_a = stack_a->next;
+		len++;
+	}
+	return (len);
+}
+
+void	print_error2(t_data *data)
+{
+	free (data->integer);
+	ft_printf("Error.\n");
+	exit (1);
+}
+
+void	check_duplicated(t_stack_a *stack_a, t_data *data)
 {
 	int	i;
 	int	j;
+	int	len;
 
+	i = 0;
+	len = linkedlen(stack_a);
+	data->integer = ft_calloc(len + 1, sizeof(int));
+	while (stack_a != NULL)
+	{
+		data->integer[i++] = stack_a->data;
+		stack_a = stack_a->next;
+	}
 	i = 0;
 	while (i < data->count)
 	{
@@ -40,15 +68,11 @@ void	check_duplicated(int *arr, t_data *data)
 		{
 			if (i == j)
 				j++;
-			if (arr[i] == arr[j])
-			{
-				free (data->integer);
-				ft_printf("Error.\n");
-				exit (1);
-			}
+			if (data->integer[i] == data->integer[j])
+				print_error2(data);
 			j++;
 		}
 		i++;
 	}
-	
+	free (data->integer);
 }
