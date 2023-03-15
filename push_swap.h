@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:23:38 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/12 16:53:54 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:18:48 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,28 @@ typedef struct s_data
 	char	**split;
 }				t_data;
 
-typedef struct s_node
-{
-	int					*data;
-	struct s_node		*next;
-}				t_node;
-
-
-typedef struct s_stack_a
+typedef struct s_stack
 {
 	int					data;
-	struct s_stack_a	*next;
-}				t_stack_a;
-
-typedef struct s_stack_b
-{
-	int					data;
-	struct s_stack_b	*next;
-}				t_stack_b;
+	struct s_stack		*next;
+}				t_stack;
 
 int			errors_handler1(char *args, t_data *data);
 int			args_checker(char *str, t_data *data);
-void		to_integer(char	*str, t_data *data, t_stack_a **stack_a);
-void		check_duplicated(t_stack_a *stack_a, t_data *data);
-void		new_first_node(t_stack_a *top_a, int data);
-void		create_node(t_stack_a **node, int data);
-void 		printList(t_stack_a *head);
+void		to_integer(char	*str, t_data *data, t_stack **stack);
+void		check_duplicated(t_stack *stack, t_data *data);
+void		create_node(t_stack **node, int data);
+void 		printList(t_stack *head);
+void		push_b(t_stack **a_head, t_stack **b_head);
+void		push_a(t_stack **a_head, t_stack **b_head);
+void		swap_a(t_stack **a_head);
+void		swap_a(t_stack **b_head);
+void		ss(t_stack **a_head, t_stack **b_head);
+void		ra(t_stack **a_head);
+void		rb(t_stack **b_head);
+void		rr(t_stack **a_head, t_stack **b_head);
+void		rra(t_stack **a_head);
+void		rrb(t_stack **b_head);
+void		rrr(t_stack **a_head, t_stack **b_head);
 
 #endif

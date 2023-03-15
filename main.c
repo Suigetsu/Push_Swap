@@ -6,33 +6,33 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:35:18 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/12 16:55:07 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:49:57 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	create_node(t_stack_a **node, int data)
+void	create_node(t_stack **head, int data)
 {
-	t_stack_a	*new_node;
-	t_stack_a	*last;
+	t_stack	*new_node;
+	t_stack	*last;
 
 	last = NULL;
-	new_node = malloc(sizeof(t_stack_a));
+	new_node = malloc(sizeof(t_stack));
 	new_node->data = data;
 	new_node->next = NULL;
-	if (*node == NULL)
+	if (*head == NULL)
 	{
-		*node = new_node;
+		*head = new_node;
 		return ;
 	}
-	last = *node;
+	last = *head;
 	while (last->next != NULL)
 		last = last->next;
 	last->next = new_node;
 }
 
-void printList(t_stack_a *head) {
+void printList(t_stack *head) {
     while (head != NULL) {
         printf("%d\n", head->data);
         head = head->next;
@@ -42,8 +42,7 @@ void printList(t_stack_a *head) {
 int	main(int ac, char **av)
 {
 	t_data		data;
-	t_stack_a	*a;
-	t_stack_b	*b;
+	t_stack		*a;
 
 	a = NULL;
 	ft_bzero(&data, sizeof(t_data));
@@ -52,7 +51,6 @@ int	main(int ac, char **av)
 	data.i = 1;
 	while (av[data.i])
 		data.count += args_checker(av[data.i++], &data);
-	data.integer = ft_calloc(data.count + 1, sizeof(int));
 	data.i = 1;
 	while (av[data.i])
 		to_integer(av[data.i++], &data, &a);

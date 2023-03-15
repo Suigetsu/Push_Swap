@@ -6,13 +6,13 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:02:15 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/12 16:34:12 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:49:23 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	to_integer(char	*str, t_data *data, t_stack_a **stack_a)
+void	to_integer(char	*str, t_data *data, t_stack **stack_a)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ void	to_integer(char	*str, t_data *data, t_stack_a **stack_a)
 	free (data->split);
 }
 
-int	linkedlen(t_stack_a *stack_a)
+int	linkedlen(t_stack *stack_a)
 {
 	int	len;
 
@@ -46,7 +46,7 @@ void	print_error2(t_data *data)
 	exit (1);
 }
 
-void	check_duplicated(t_stack_a *stack_a, t_data *data)
+void	check_duplicated(t_stack *stack_a, t_data *data)
 {
 	int	i;
 	int	j;

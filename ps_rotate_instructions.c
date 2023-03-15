@@ -1,48 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_swap_instructions.c                             :+:      :+:    :+:   */
+/*   ps_rotate_instructions.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 18:38:07 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/15 17:16:30 by mlagrini         ###   ########.fr       */
+/*   Created: 2023/03/13 16:52:38 by mlagrini          #+#    #+#             */
+/*   Updated: 2023/03/15 17:18:05 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_stack **a_head)
+void	ra(t_stack **a_head)
 {
 	t_stack	*temp;
-	
-	if (*a_head == NULL || (*a_head)->next == NULL)
+	t_stack	*last;
+
+	if (*a_head == NULL)
 		return ;
-	temp = (*a_head)->next;
-	(*a_head)->next = temp->next;
-	temp->next = *a_head;
-	*a_head = temp;
-	ft_printf("sa\n");
+	temp = *a_head;
+	*a_head = (*a_head)->next;
+	last = *a_head;
+	while (last->next != NULL)
+		last = last->next;
+	last->next = temp;
+	ft_printf("ra\n");
 }
 
-void	swap_a(t_stack **b_head)
+void	rb(t_stack **b_head)
 {
 	t_stack	*temp;
-	
-	if (*b_head == NULL || (*b_head)->next == NULL)
+	t_stack	*last;
+
+	if (*b_head == NULL)
 		return ;
-	temp = (*b_head)->next;
-	(*b_head)->next = temp->next;
-	temp->next = *b_head;
-	*b_head = temp;
-	ft_printf("sa\n");
+	temp = *b_head;
+	*b_head = (*b_head)->next;
+	last = *b_head;
+	while (last->next != NULL)
+		last = last->next;
+	last->next = temp;
+	ft_printf("rb\n");
 }
 
-void	ss(t_stack **a_head, t_stack **b_head)
+void	rr(t_stack **a_head, t_stack **b_head)
 {
 	if (*a_head == NULL || *b_head == NULL)
 		return ;
-	swap_a(a_head);
-	swap_b(b_head);
-	ft_printf("ss\n");
+	ra(a_head);
+	rb(b_head);
+	ft_printf("rr\n");
 }
