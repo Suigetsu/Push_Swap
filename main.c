@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:35:18 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/13 15:49:57 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:05:18 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ int	main(int ac, char **av)
 {
 	t_data		data;
 	t_stack		*a;
+	t_stack		*b;
 
 	a = NULL;
+	b = NULL;
 	ft_bzero(&data, sizeof(t_data));
 	if (ac <= 2)
 		exit(0);
@@ -55,5 +57,9 @@ int	main(int ac, char **av)
 	while (av[data.i])
 		to_integer(av[data.i++], &data, &a);
 	check_duplicated(a, &data);
+	if (ac == 3)
+		sort_two(&a);
+	if (ac == 4)
+		sort_three(&a);
 	printList(a);
 }

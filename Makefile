@@ -6,11 +6,13 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 20:29:42 by mlagrini          #+#    #+#              #
-#    Updated: 2023/03/09 15:15:45 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/03/17 11:10:43 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC			=	main.c ps_checkargs.c ps_tointeger.c
+SRC			=	main.c ps_checkargs.c ps_tointeger.c ps_push_instructions.c \
+				ps_rev_rotate_instructions.c ps_rotate_instructions.c \
+				ps_sort3.c ps_swap_instructions.c 
 OBJS		=	${SRC:.c=.o}
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror

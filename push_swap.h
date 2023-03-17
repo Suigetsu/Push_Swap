@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:23:38 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/15 17:18:48 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:05:57 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ void		rr(t_stack **a_head, t_stack **b_head);
 void		rra(t_stack **a_head);
 void		rrb(t_stack **b_head);
 void		rrr(t_stack **a_head, t_stack **b_head);
+void		sort_three(t_stack **a_head);
+void		sort_two(t_stack **a_head);
 
 #endif

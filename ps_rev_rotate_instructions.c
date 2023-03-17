@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:07:13 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/15 17:12:52 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:12:37 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	rra(t_stack **a_head)
 	before_last = *a_head;
 	while (before_last->next != last)
 		before_last = before_last->next;
-	before_last->next = NULL
+	before_last->next = NULL;
 	ft_printf("rra\n");
 }
 
@@ -46,7 +46,7 @@ void	rrb(t_stack **b_head)
 	before_last = *b_head;
 	while (before_last->next != last)
 		before_last = before_last->next;
-	before_last->next = NULL
+	before_last->next = NULL;
 	ft_printf("rrb\n");
 }
 
@@ -56,5 +56,5 @@ void	rrr(t_stack **a_head, t_stack **b_head)
 		return ;
 	rra(a_head);
 	rrb(b_head);
-	t_printf("rrr\n");
+	ft_printf("rrr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 18:38:07 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/15 17:16:30 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:13:10 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	swap_a(t_stack **a_head)
 	ft_printf("sa\n");
 }
 
-void	swap_a(t_stack **b_head)
+void	swap_b(t_stack **b_head)
 {
 	t_stack	*temp;
 	
