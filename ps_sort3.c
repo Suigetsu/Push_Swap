@@ -6,44 +6,39 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:15:14 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/17 17:04:33 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/18 13:28:16 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_two(t_stack **a_head)
+void	sort_two(t_stack **a)
 {
-	if ((*a_head)->data > (*a_head)->next->data)
-		swap_a(a_head);
+	if ((*a)->data > (*a)->next->data)
+		swap_a(a);
 }
 
-void	sort_three(t_stack **a_head)
+void	sort_three(t_stack **a)
 {
-	if ((*a_head)->data > (*a_head)->next->data && \
-		(*a_head)->next->data < (*a_head)->next->next->data && \
-		(*a_head)->next->next->data > (*a_head)->data)
-		swap_a(a_head);
-	else if ((*a_head)->data > (*a_head)->next->data && \
-			(*a_head)->next->data > (*a_head)->next->next->data && \
-			(*a_head)->next->next->data < (*a_head)->data)
+	if ((*a)->data > (*a)->next->data && (*a)->next->data < \
+	(*a)->next->next->data && (*a)->next->next->data > (*a)->data)
+		swap_a(a);
+	else if ((*a)->data > (*a)->next->data && (*a)->next->data > \
+	(*a)->next->next->data && (*a)->next->next->data < (*a)->data)
 	{
-		swap_a(a_head);
-		rra(a_head);
+		swap_a(a);
+		rra(a);
 	}
-	else if ((*a_head)->data > (*a_head)->next->data && \
-			(*a_head)->next->data < (*a_head)->next->next->data && \
-			(*a_head)->next->next->data < (*a_head)->data)
-		ra(a_head);
-	else if ((*a_head)->data < (*a_head)->next->data && \
-			(*a_head)->next->data > (*a_head)->next->next->data && \
-			(*a_head)->next->next->data > (*a_head)->data)
+	else if ((*a)->data > (*a)->next->data && (*a)->next->data < \
+	(*a)->next->next->data && (*a)->next->next->data < (*a)->data)
+		ra(a);
+	else if ((*a)->data < (*a)->next->data && (*a)->next->data > \
+	(*a)->next->next->data && (*a)->next->next->data > (*a)->data)
 	{
-		swap_a(a_head);
-		ra(a_head);
+		swap_a(a);
+		ra(a);
 	}
-	else if ((*a_head)->data < (*a_head)->next->data && \
-			(*a_head)->next->data > (*a_head)->next->next->data && \
-			(*a_head)->next->next->data < (*a_head)->data)
-		rra(a_head);
+	else if ((*a)->data < (*a)->next->data && (*a)->next->data > \
+	(*a)->next->next->data && (*a)->next->next->data < (*a)->data)
+		rra(a);
 }
