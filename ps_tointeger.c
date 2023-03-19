@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:02:15 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/17 16:08:38 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/19 11:41:22 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,6 @@ void	print_error2(t_data *data)
 	exit (1);
 }
 
-// void	from_linked_to_arr(t_stack *a, char t_data *data)
-// {
-	
-// }
-
 void	check_duplicated(t_stack *stack_a, t_data *data)
 {
 	int		i;
@@ -73,7 +68,7 @@ void	check_duplicated(t_stack *stack_a, t_data *data)
 		{
 			if (i == j)
 				j++;
-			if (data->integer[i] == data->integer[j])
+			if (data->integer[i] == data->integer[j] && data->integer[j] != '\0')
 				print_error2(data);
 			j++;
 		}
