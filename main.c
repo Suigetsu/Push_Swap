@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:35:18 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/19 10:49:43 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/19 20:25:42 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,9 @@ int	main(int ac, char **av)
 		sort_two(&a);
 	if (data.count == 3)
 		sort_three(&a);
+	if (data.count == 4)
+		sort_four(&a, &b);
+	if (data.count == 5)
+		sort_five(&a, &b);
 	printList(a);
 }
