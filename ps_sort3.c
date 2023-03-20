@@ -6,11 +6,35 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:15:14 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/19 20:26:50 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:01:42 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	find_min(t_stack **a)
+{
+	t_stack *temp;
+	int		pos;
+	int		i;
+	int		best_min;
+
+	temp = *a;
+	pos = 0;
+	i = 0;
+	best_min = INT32_MAX;
+	while (temp)
+	{
+		if (temp->data < best_min)
+		{
+			best_min = temp->data;
+			pos = i;
+		}
+		i++;
+		temp = temp->next;
+	}
+	return (pos);
+}
 
 void	sort_two(t_stack **a)
 {
@@ -43,34 +67,33 @@ void	sort_three(t_stack **a)
 		rra(a);
 }
 
-void	sort_four(t_stack **a, t_stack **b)
+
+void	sort_four_five(t_stack **a, t_stack **b)
 {
-	push_b(a, b);
+	int	len;
+	int	min;
+	int	i;
+	int	j;
+
+	len = linkedlen(*a);
+	j = len;
+	while (len > 3)
+	{
+		i = 0;
+		min = find_min(a);
+		while (min != 0)
+		{
+			if (min < j / 2)
+				ra(a);
+			else
+				rra(a);
+			min = find_min(a);
+		}
+		if (is_sorted(*a))
+			push_b(a, b);
+		len--;
+	}
 	sort_three(a);
 	push_a(a, b);
-	if ((*a)->data > (*a)->next->data && (*a)->data > (*a)->next->next->data \
-	&& (*a)->data > (*a)->next->next->next->data)
-		ra(a);
-	else if ((*a)->data > (*a)->next->data && (*a)->data < (*a)->next->next->data)
-		swap_a(a);
-	else if ((*a)->data > (*a)->next->data && (*a)->data > (*a)->next->next->data \
-	&& (*a)->data < (*a)->next->next->next->data)
-	{
-		rra(a);
-		swap_a(a);
-		ra(a);
-		ra(a);
-	}
-}
-
-void	sort_five(t_stack **a, t_stack **b)
-{
-	int	index;
-
-	index = 0;
-	push_b(a, b);
-	sort_four(a, b);
 	push_a(a, b);
-	if ((*a)->data > (*a)->next->data)
-		ra(a);
 }

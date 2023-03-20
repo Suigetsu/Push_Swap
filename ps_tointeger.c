@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:02:15 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/19 11:41:22 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:58:49 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,18 @@ void	check_duplicated(t_stack *stack_a, t_data *data)
 		i++;
 	}
 	free (data->integer);
+}
+
+int	is_sorted(t_stack *a_head)
+{
+	t_stack	*temp;
+
+	temp = a_head;
+	while (temp->next != NULL)
+	{
+		if (temp->data > temp->next->data)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
 }
