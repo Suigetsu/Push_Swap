@@ -32,11 +32,13 @@ void	create_node(t_stack **head, int data)
 	last->next = new_node;
 }
 
-void printList(t_stack *head) {
-    while (head != NULL) {
-        printf("%d\n", head->data);
-        head = head->next;
-    }
+void	printlist(t_stack *head)
+{
+	while (head != NULL)
+	{
+		printf("%d\n", head->data);
+		head = head->next;
+	}
 }
 
 int	main(int ac, char **av)
@@ -63,5 +65,5 @@ int	main(int ac, char **av)
 		sort_three(&a);
 	if (data.count > 3 && data.count <= 5)
 		sort_four_five(&a, &b);
-	printList(a);
+	printlist(a);
 }

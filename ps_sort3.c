@@ -14,7 +14,7 @@
 
 int	find_min(t_stack **a)
 {
-	t_stack *temp;
+	t_stack	*temp;
 	int		pos;
 	int		i;
 	int		best_min;
@@ -67,19 +67,16 @@ void	sort_three(t_stack **a)
 		rra(a);
 }
 
-
 void	sort_four_five(t_stack **a, t_stack **b)
 {
 	int	len;
 	int	min;
-	int	i;
 	int	j;
 
 	len = linkedlen(*a);
 	j = len;
 	while (len > 3)
 	{
-		i = 0;
 		min = find_min(a);
 		while (min != 0)
 		{

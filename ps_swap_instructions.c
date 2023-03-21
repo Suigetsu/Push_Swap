@@ -15,7 +15,7 @@
 void	swap_a(t_stack **a_head)
 {
 	t_stack	*temp;
-	
+
 	if (*a_head == NULL || (*a_head)->next == NULL)
 		return ;
 	temp = (*a_head)->next;
@@ -28,7 +28,7 @@ void	swap_a(t_stack **a_head)
 void	swap_b(t_stack **b_head)
 {
 	t_stack	*temp;
-	
+
 	if (*b_head == NULL || (*b_head)->next == NULL)
 		return ;
 	temp = (*b_head)->next;

@@ -16,7 +16,7 @@ void	rra(t_stack **a_head)
 {
 	t_stack	*last;
 	t_stack	*before_last;
-	
+
 	if (*a_head == NULL)
 		return ;
 	last = *a_head;
@@ -35,7 +35,7 @@ void	rrb(t_stack **b_head)
 {
 	t_stack	*last;
 	t_stack	*before_last;
-	
+
 	if (*b_head == NULL)
 		return ;
 	last = *b_head;

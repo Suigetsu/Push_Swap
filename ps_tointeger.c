@@ -50,11 +50,9 @@ void	check_duplicated(t_stack *stack_a, t_data *data)
 {
 	int		i;
 	int		j;
-	int		len;
 
 	i = 0;
-	len = linkedlen(stack_a);
-	data->integer = ft_calloc(len + 1, sizeof(int));
+	data->integer = ft_calloc((linkedlen(stack_a)) + 1, sizeof(int));
 	while (stack_a != NULL)
 	{
 		data->integer[i++] = stack_a->data;
@@ -68,7 +66,7 @@ void	check_duplicated(t_stack *stack_a, t_data *data)
 		{
 			if (i == j)
 				j++;
-			if (data->integer[i] == data->integer[j] && data->integer[j] != '\0')
+			if (data->integer[i] == data->integer[j] && data->integer[j])
 				print_error2(data);
 			j++;
 		}

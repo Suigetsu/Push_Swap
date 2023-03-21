@@ -38,7 +38,7 @@ int			args_checker(char *str, t_data *data);
 void		to_integer(char	*str, t_data *data, t_stack **stack);
 void		check_duplicated(t_stack *stack, t_data *data);
 void		create_node(t_stack **node, int data);
-void 		printList(t_stack *head);
+void		printList(t_stack *head);
 void		push_b(t_stack **a_head, t_stack **b_head);
 void		push_a(t_stack **a_head, t_stack **b_head);
 void		swap_a(t_stack **a_head);
@@ -57,6 +57,5 @@ void		sort_five(t_stack **a, t_stack **b);
 int			is_sorted(t_stack *a_head);
 int			linkedlen(t_stack *stack_a);
 void		sort_four_five(t_stack **a, t_stack **b);
-
 
 #endif

@@ -28,7 +28,7 @@ void	push_b(t_stack **a_head, t_stack **b_head)
 void	push_a(t_stack **a_head, t_stack **b_head)
 {
 	t_stack	*temp;
-	
+
 	if (*b_head == NULL)
 		return ;
 	temp = *b_head;
