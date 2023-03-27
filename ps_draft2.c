@@ -1,49 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_sort100.c                                       :+:      :+:    :+:   */
+/*   ps_draft2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 16:45:14 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/27 13:07:01 by mlagrini         ###   ########.fr       */
+/*   Created: 2023/03/27 14:53:50 by mlagrini          #+#    #+#             */
+/*   Updated: 2023/03/27 16:22:23 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	best_move_algo(t_stack **a, t_stack **b)
+void	calculate_moves(t_stack **head)
+{
+
+}
+
+void	the_algo(t_stack **a, t_stack **b)
 {
 	int	count;
-	int	index;
-	/* int	len; */
+	int	i;
 
 	count = 0;
-	index = 0;
-	while (is_sorted(*a) && count < 2)
+	i = 0;
+	push_b(a, b);
+	push_b(a, b);
+	assign_value(b);
+	assign_index(b);
+	while (*a != NULL)
 	{
-		push_b(a, b);
-		count++;
-	}
-	if (!is_sorted(*a))
-	{
-		if (count == 1 && (*b)->data > (*a)->data)
-		{
-			push_a(a, b);
-			ra(a);
-		}
-		else if (count == 2)
-		{
-			if (!is_sorted(*b))
-				swap_b(b);
-			push_a(a, b);
-			push_a(a, b);
-			while (count > 0)
-			{
-				if (is_sorted(*a))
-					ra(a);
-				count--;
-			}
-		}
+		
 	}
 }

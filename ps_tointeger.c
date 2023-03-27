@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:02:15 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/20 10:58:49 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/26 12:59:56 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ int	linkedlen(t_stack *stack_a)
 	return (len);
 }
 
-void	print_error2(t_data *data)
+void	print_error2(t_data *data, t_stack *a)
 {
+	free_nodes(&a);
 	free (data->integer);
 	ft_printf("Error.\n");
 	exit (1);
@@ -67,7 +68,7 @@ void	check_duplicated(t_stack *stack_a, t_data *data)
 			if (i == j)
 				j++;
 			if (data->integer[i] == data->integer[j] && data->integer[j])
-				print_error2(data);
+				print_error2(data, stack_a);
 			j++;
 		}
 		i++;
@@ -82,7 +83,9 @@ int	is_sorted(t_stack *a_head)
 	temp = a_head;
 	while (temp->next != NULL)
 	{
-		if (temp->data > temp->next->data)
+		if (temp->data > temp->next->data \
+			|| (temp->data < temp->next->data \
+				&& (temp->next->data - temp->data != 1)))
 			return (1);
 		temp = temp->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:15:14 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/20 17:01:42 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/25 13:36:35 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	find_min(t_stack **a)
 	temp = *a;
 	pos = 0;
 	i = 0;
-	best_min = INT32_MAX;
+	best_min = INT_MAX;
 	while (temp)
 	{
 		if (temp->data < best_min)

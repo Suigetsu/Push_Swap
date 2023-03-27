@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 23:50:16 by mlagrini          #+#    #+#             */
-/*   Updated: 2022/10/24 19:45:32 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/25 13:39:23 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_putuphex(unsigned int n)
 
 	count = 0;
 	str = "0123456789ABCDEF";
-	if (n >= 0 && n <= 15)
+	if (n > 0 && n <= 15)
 		ft_putchar (str[n]);
 	else
 	{

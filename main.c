@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:35:18 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/20 13:18:58 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/27 13:59:07 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	printlist(t_stack *head)
 {
 	while (head != NULL)
 	{
-		printf("%d\n", head->data);
+		printf("%d, %d, %d\n", head->data, head->value, head->index);
 		head = head->next;
 	}
 }
@@ -46,9 +46,11 @@ int	main(int ac, char **av)
 	t_data		data;
 	t_stack		*a;
 	t_stack		*b;
+	t_stack		init;
 
 	a = NULL;
 	b = NULL;
+	ft_bzero(&init, sizeof(t_stack));
 	ft_bzero(&data, sizeof(t_data));
 	data.i = 1;
 	while (data.i < ac)
@@ -59,11 +61,17 @@ int	main(int ac, char **av)
 	while (data.i < ac)
 		to_integer(av[data.i++], &data, &a);
 	check_duplicated(a, &data);
-	if (data.count == 2)
-		sort_two(&a);
-	if (data.count == 3)
-		sort_three(&a);
-	if (data.count > 3 && data.count <= 5)
-		sort_four_five(&a, &b);
+	assign_value(&a);
+	assign_index(&a);
+	// if (data.count == 2)
+	// 	sort_two(&a);
+	// if (data.count == 3)
+	// 	sort_three(&a);
+	// if (data.count > 3 && data.count <= 5)
+	// 	sort_four_five(&a, &b);
+	// if (data.count > 5)
+	// 	best_move_algo(&a, &b);
+
+	/* free_nodes(&a); */
 	printlist(a);
 }

@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 19:48:53 by mlagrini          #+#    #+#             */
-/*   Updated: 2022/10/24 21:43:05 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/25 13:39:53 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_putadrs(unsigned long n)
 
 	count = 0;
 	str = "0123456789abcdef";
-	if (n >= 0 && n <= 15)
+	if (n > 0 && n <= 15)
 		ft_putchar (str[n]);
 	else
 	{

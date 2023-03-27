@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ps_free_nodes.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlagrini <mlagrini@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 14:33:47 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/25 13:38:17 by mlagrini         ###   ########.fr       */
+/*   Created: 2023/03/25 13:59:41 by mlagrini          #+#    #+#             */
+/*   Updated: 2023/03/25 14:14:15 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	free_nodes(t_stack **a)
 {
-	int		len;
-	char	*ptr;
+	t_stack *a_temp;
 
-	len = ft_strlen(s);
-	ptr = ((char *)s) + len;
-	while (s <= ptr)
+	while (*a != NULL)
 	{
-		if (*ptr == (char)c)
-			return (ptr);
-		ptr--;
+		a_temp = *a;
+		*a = (*a)->next;
+		free(a_temp);
 	}
-	return (0);
 }

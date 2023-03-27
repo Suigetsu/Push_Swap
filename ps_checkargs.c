@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 21:39:48 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/19 11:41:25 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/25 13:36:09 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	args_checker(char *str, t_data *data)
 	i = 0;
 	count = 0;
 	data->split = ft_split(str, ' ');
-	while (data->split[i] != '\0')
+	while (data->split[i] != NULL)
 	{
 		check_num(data->split[i++], data);
 		count++;

@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 16:12:08 by mlagrini          #+#    #+#             */
-/*   Updated: 2022/10/23 22:14:27 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/25 13:39:38 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putunsigned(unsigned int n)
 	int	count;
 
 	count = 0;
-	if (n >= 0 && n <= 9)
+	if (n > 0 && n <= 9)
 		ft_putchar(n + '0');
 	else
 	{

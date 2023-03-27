@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   new_test.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlagrini <mlagrini@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 14:33:47 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/25 13:38:17 by mlagrini         ###   ########.fr       */
+/*   Created: 2023/03/27 09:39:43 by mlagrini          #+#    #+#             */
+/*   Updated: 2023/03/27 10:05:03 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	moves_nbr(int element, t_stack **head)
 {
-	int		len;
-	char	*ptr;
+	int	len;
+	int	index;
+	t_stack	*temp;
 
-	len = ft_strlen(s);
-	ptr = ((char *)s) + len;
-	while (s <= ptr)
+	len = linkedlen(*head);
+	index = 0;
+	temp = *head;
+	while (temp != NULL)
 	{
-		if (*ptr == (char)c)
-			return (ptr);
-		ptr--;
+		if (element == temp->data)
+			return (index);
+		index++;
+		temp = temp->next;
 	}
-	return (0);
+	return (-1);
 }
