@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_sort3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:15:14 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/25 13:36:35 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/29 17:48:54 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,30 @@ int	find_min(t_stack **a)
 	while (temp)
 	{
 		if (temp->data < best_min)
+		{
+			best_min = temp->data;
+			pos = i;
+		}
+		i++;
+		temp = temp->next;
+	}
+	return (pos);
+}
+
+int	find_max(t_stack **a)
+{
+	t_stack	*temp;
+	int		pos;
+	int		i;
+	int		best_min;
+
+	temp = *a;
+	pos = 0;
+	i = 0;
+	best_min = INT_MIN;
+	while (temp)
+	{
+		if (temp->data > best_min)
 		{
 			best_min = temp->data;
 			pos = i;

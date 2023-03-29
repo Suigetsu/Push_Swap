@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_swap_instructions.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 18:38:07 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/27 07:52:37 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:06:19 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	swap_b(t_stack **b_head)
 	if (*b_head == NULL || (*b_head)->next == NULL)
 		return ;
 	swap_stack(b_head);
-	ft_printf("sa\n");
+	ft_printf("sb\n");
 }
 
 void	ss(t_stack **a_head, t_stack **b_head)

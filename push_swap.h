@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:23:38 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/27 13:58:42 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/29 08:31:21 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_stack
 {
 	int				index;
 	int				value;
+	int				moves;
 	int				data;
 	struct s_stack	*next;
 }				t_stack;
@@ -46,7 +47,6 @@ int		args_checker(char *str, t_data *data);
 void	to_integer(char	*str, t_data *data, t_stack **stack);
 void	check_duplicated(t_stack *stack, t_data *data);
 void	create_node(t_stack **node, int data);
-void	printList(t_stack *head);
 void	push_b(t_stack **a_head, t_stack **b_head);
 void	push_a(t_stack **a_head, t_stack **b_head);
 void	swap_a(t_stack **a_head);
@@ -60,8 +60,6 @@ void	rrb(t_stack **b_head);
 void	rrr(t_stack **a_head, t_stack **b_head);
 void	sort_three(t_stack **a_head);
 void	sort_two(t_stack **a_head);
-void	sort_four(t_stack **a, t_stack **b);
-void	sort_five(t_stack **a, t_stack **b);
 int		is_sorted(t_stack *a_head);
 int		linkedlen(t_stack *stack_a);
 void	sort_four_five(t_stack **a, t_stack **b);
@@ -70,5 +68,8 @@ void	free_nodes(t_stack **a);
 void	best_move_algo(t_stack **a, t_stack **b);
 void	assign_value(t_stack **head);
 void	assign_index(t_stack **head);
+int		find_max(t_stack **head);
+int		find_max_index(t_stack **head);
+void	algo(t_stack **a, t_stack **b);
 
 #endif
