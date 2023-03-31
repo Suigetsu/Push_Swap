@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 09:48:46 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/31 10:55:44 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/31 14:45:49 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(int ac, char **av)
 	while (fd != EOF)
 	{
 		data.str = get_next_line(fd);
-		ft_printf("%s", get_next_line(fd));
-		
+		is_instructions(data.str, &a, &b);
 	}
 }
