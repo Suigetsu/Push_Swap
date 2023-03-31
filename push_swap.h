@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:23:38 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/31 07:45:50 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/31 10:55:14 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_data
 	int		min_range;
 	int		max_range;
 	char	**split;
+	char	*str;
 }				t_data;
 
 typedef struct s_stack
