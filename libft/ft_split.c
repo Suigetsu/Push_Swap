@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:24:04 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/09 15:31:20 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/30 15:16:34 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-typedef struct s_splitdata
+typedef struct s_splitvar
 {
 	int		i;
 	int		j;
@@ -21,7 +21,7 @@ typedef struct s_splitdata
 	int		count;
 	char	**strings;
 	char	*ptr;
-}				t_splitdata;
+}				t_splitvar;
 
 static int	wordcount(char *s, char c)
 {
@@ -46,32 +46,50 @@ static int	wordcount(char *s, char c)
 
 static int	wordlen(char *s, char c)
 {
-	static int	i;
+	static int	o;
 	int			len;
 
 	len = 1;
-	while (s[i] != '\0')
+	while (s[o] != '\0')
 	{
-		while (s[i] == c)
-			i++;
-		while (s[i] != c && s[i] != '\0')
+		while (s[o] == c)
+			o++;
+		while (s[o] != c && s[o] != '\0')
 		{
-			i++;
+			o++;
 			len++;
-			if (s[i] == c)
+			if (s[o] == c)
 				return (len);
 		}
 	}
 	return (len);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**one_element(char *s, char **str)
 {
-	t_splitdata	var;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	str[i] = ft_calloc((ft_strlen(s) + 1), sizeof(char));
+	while ((size_t) j < ft_strlen(s))
+	{
+		str[i][j] = s[j];
+		j++;
+	}
+	return (str);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	t_splitvar	var;
 
 	var.i = 0;
 	var.k = 0;
-	var.strings = ft_calloc((wordcount((char *)s, c) + 1), sizeof(char *));
+	var.strings = ft_calloc ((wordcount((char *)s, c) + 1), sizeof(char *));
+	if (wordcount((char *)s, c) == 1)
+		return (one_element((char *)s, var.strings));
 	if (var.strings == NULL)
 		return (NULL);
 	while (s[var.i] != '\0')
@@ -81,7 +99,7 @@ char	**ft_split(char const *s, char c)
 		if (s[var.i] == '\0')
 			break ;
 		var.len = wordlen((char *)s, c);
-		var.strings[var.k] = ft_calloc((var.len + 1), sizeof(char));
+		var.strings[var.k] = ft_calloc (((var.len) + 1), sizeof(char));
 		if (var.strings[var.k] == NULL)
 			return (NULL);
 		var.j = 0;

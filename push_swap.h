@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:23:38 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/29 08:31:21 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/30 15:38:54 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ void	assign_value(t_stack **head);
 void	assign_index(t_stack **head);
 int		find_max(t_stack **head);
 int		find_max_index(t_stack **head);
-void	algo(t_stack **a, t_stack **b);
+void	algo(t_stack **a, t_stack **b, int count);
 
 #endif
