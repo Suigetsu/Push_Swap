@@ -6,20 +6,20 @@
 #    By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 20:29:42 by mlagrini          #+#    #+#              #
-#    Updated: 2023/03/30 14:29:12 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/03/31 08:15:28 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC			=	ps_checkargs.c ps_tointeger.c ps_push_instructions.c \
-				ps_rev_rotate_instructions.c ps_rotate_instructions.c \
-				ps_sort3.c ps_swap_instructions.c ps_free_nodes.c \
-				ps_sort100.c ps_draft.c ps_draft2.c tools.c ps_realrange.c main.c
+SRC			=	ps_checkargs.c ps_utils.c ps_utils2.c ps_push_instructions.c \
+				ps_rev_rotate_instructions.c ps_sort3to5.c ps_sortbig.c \
+				ps_rotate_instructions.c ps_swap_instructions.c ps_tointeger.c \
+				push_swap.c
 OBJS		=	${SRC:.c=.o}
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -g
+CFLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -rf
 LIBFT		=	libft/libft.a ft_printf/libftprintf.a
-# INCLUDES	=	-I push_swap.h
+INCLUDES	=	-I push_swap.h
 NAME		=	push_swap
 
 
@@ -33,7 +33,7 @@ ${LIBFT}:
 		make -C ft_printf
 
 ${NAME}: ${OBJS} ${LIBFT}
-		${CC} ${CFLAGS} ${OBJS} ${LIBFT} -o $@
+		${CC} ${CFLAGS} ${INCLUDES} ${OBJS} ${LIBFT} -o $@
 		clear
 
 clean:

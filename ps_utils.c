@@ -1,16 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_draft.c                                         :+:      :+:    :+:   */
+/*   ps_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 06:39:12 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/27 14:18:54 by mlagrini         ###   ########.fr       */
+/*   Created: 2023/03/31 07:00:09 by mlagrini          #+#    #+#             */
+/*   Updated: 2023/03/31 07:44:05 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	linkedlen(t_stack *stack_a)
+{
+	int	len;
+
+	len = 0;
+	while (stack_a != NULL)
+	{
+		stack_a = stack_a->next;
+		len++;
+	}
+	return (len);
+}
+
+int	is_sorted(t_stack *a_head)
+{
+	t_stack	*temp;
+
+	temp = a_head;
+	while (temp->next != NULL)
+	{
+		if (temp->data > temp->next->data \
+			|| (temp->data < temp->next->data \
+				&& (temp->next->data - temp->data != 1)))
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
 
 static int	*sort_arr(int *arr, int len)
 {

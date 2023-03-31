@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:23:38 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/30 15:38:54 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/31 07:45:50 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,8 @@ typedef struct s_data
 	int		j;
 	int		count;
 	int		*integer;
-	int		min;
-	int		max;
-	int		mid;
-	int		pos;
-	int		best_max;
+	int		min_range;
+	int		max_range;
 	char	**split;
 }				t_data;
 
@@ -37,39 +34,36 @@ typedef struct s_stack
 {
 	int				index;
 	int				value;
-	int				moves;
 	int				data;
 	struct s_stack	*next;
 }				t_stack;
 
-int		errors_handler1(char *args, t_data *data);
 int		args_checker(char *str, t_data *data);
-void	to_integer(char	*str, t_data *data, t_stack **stack);
-void	check_duplicated(t_stack *stack, t_data *data);
-void	create_node(t_stack **node, int data);
 void	push_b(t_stack **a_head, t_stack **b_head);
 void	push_a(t_stack **a_head, t_stack **b_head);
-void	swap_a(t_stack **a_head);
-void	swap_b(t_stack **b_head);
-void	ss(t_stack **a_head, t_stack **b_head);
-void	ra(t_stack **a_head);
-void	rb(t_stack **b_head);
-void	rr(t_stack **a_head, t_stack **b_head);
 void	rra(t_stack **a_head);
 void	rrb(t_stack **b_head);
 void	rrr(t_stack **a_head, t_stack **b_head);
-void	sort_three(t_stack **a_head);
-void	sort_two(t_stack **a_head);
-int		is_sorted(t_stack *a_head);
-int		linkedlen(t_stack *stack_a);
+void	ra(t_stack **a_head);
+void	rb(t_stack **b_head);
+void	rr(t_stack **a_head, t_stack **b_head);
+void	sort_two(t_stack **a);
+void	sort_three(t_stack **a);
 void	sort_four_five(t_stack **a, t_stack **b);
-int		find_min(t_stack **a);
-void	free_nodes(t_stack **a);
-void	best_move_algo(t_stack **a, t_stack **b);
-void	assign_value(t_stack **head);
+void	range_algo(t_stack **a, t_stack **b, t_data *data);
+void	swap_a(t_stack **a_head);
+void	swap_b(t_stack **b_head);
+void	ss(t_stack **a_head, t_stack **b_head);
+void	create_node(t_stack **head, int data);
+void	to_integer(char	*str, t_data *data, t_stack **stack_a);
+void	check_duplicated(t_stack *stack_a, t_data *data);
+int		linkedlen(t_stack *stack_a);
+int		is_sorted(t_stack *a_head);
 void	assign_index(t_stack **head);
-int		find_max(t_stack **head);
-int		find_max_index(t_stack **head);
-void	algo(t_stack **a, t_stack **b, int count);
+void	assign_value(t_stack **head);
+int		find_min(t_stack **a);
+int		find_max(t_stack **a);
+void	free_nodes(t_stack **a);
+void	sort_args(t_stack **a, t_stack **b, t_data *data);
 
 #endif

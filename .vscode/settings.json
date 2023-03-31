@@ -2,7 +2,14 @@
     "files.associations": {
         "push_swap.h": "c",
         "stdlib.h": "c",
-        "libft.h": "c"
+        "libft.h": "c",
+        "__bit_reference": "c",
+        "algorithm": "c",
+        "bitset": "c",
+        "chrono": "c",
+        "map": "c",
+        "set": "c",
+        "unordered_map": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

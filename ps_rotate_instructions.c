@@ -6,13 +6,13 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:52:38 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/29 18:03:08 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/03/31 07:41:36 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_stack(t_stack **head)
+static void	rotate_stack(t_stack **head)
 {
 	t_stack	*temp;
 	t_stack	*last;
