@@ -6,11 +6,27 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 09:48:46 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/31 14:45:49 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/01 10:54:32 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+void	check_op(t_data *data, t_stack **a, t_stack **b)
+{
+	is_instructions(data->str, a, b);
+	free (data->str);
+	data->str = get_next_line(0);
+	if (data->str == NULL)
+	{
+		if (is_sorted(*a) == 0)
+		{
+			free_nodes(a);
+			ft_printf("OK\n");
+			exit (0);
+		}
+	}
+}
 
 int	main(int ac, char **av)
 {
@@ -18,11 +34,9 @@ int	main(int ac, char **av)
 	t_stack	init;
 	t_stack	*a;
 	t_stack	*b;
-	int		fd;
 
 	a = NULL;
 	b = NULL;
-	fd = 0;
 	ft_bzero(&init, sizeof(t_stack));
 	ft_bzero(&data, sizeof(t_data));
 	data.i = 1;
@@ -32,11 +46,10 @@ int	main(int ac, char **av)
 	while (data.i < ac)
 		to_integer(av[data.i++], &data, &a);
 	check_duplicated(a, &data);
-	assign_value(&a);
-	assign_index(&a);
-	while (fd != EOF)
-	{
-		data.str = get_next_line(fd);
-		is_instructions(data.str, &a, &b);
-	}
+	data.str = get_next_line(0);
+	while (data.str)
+		check_op(&data, &a, &b);
+	free_nodes(&a);
+	ft_printf("KO\n");
+	return (0);
 }

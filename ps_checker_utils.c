@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 11:35:56 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/31 16:32:28 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/01 10:47:05 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,45 +25,42 @@ static void	print_error3(char *str, t_stack **a, t_stack **b)
 static void	a_instructions(char c, t_stack **a, t_stack **b)
 {
 	if (c == 's')
-		swap_a(a);
+		swap_a_checker(a);
 	else if (c == 'p')
-		push_a(a, b);
+		push_a_checker(a, b);
 	else if (c == 'r')
-		ra(a);
+		ra_checker(a);
 }
 
 static void	b_instructions(char c, t_stack **a, t_stack **b)
 {
 	if (c == 's')
-		swap_b(b);
+		swap_b_checker(b);
 	else if (c == 'p')
-		push_b(a, b);
+		push_b_checker(a, b);
 	else if (c == 'r')
-		rb(b);
+		rb_checker(b);
 }
 
 static void	r_instructions(char *str, t_stack **a, t_stack **b)
 {
-	int	i;
-
-	i = 0;
-	if (ft_strlen(str) == 2)
+	if (ft_strlen(str) == 3)
 	{
 		if (str[0] == 'r')
-			rr(a, b);
+			rr_checker(a, b);
 		else
 			print_error3(str, a, b);
 	}
-	else if (ft_strlen(str) == 3)
+	else if (ft_strlen(str) == 4)
 	{
 		if (str[0] == 'r')
 		{
 			if (str[2] == 'a')
-				rra(a);
+				rra_checker(a);
 			else if (str[2] == 'b')
-				rrb(b);
+				rrb_checker(b);
 			else if (str[2] == 'r')
-				rrr(a, b);
+				rrr_checker(a, b);
 			else
 				print_error3(str, a, b);
 		}
@@ -72,23 +69,25 @@ static void	r_instructions(char *str, t_stack **a, t_stack **b)
 
 void	is_instructions(char *str, t_stack **a, t_stack **b)
 {
-	int	i;
-	
-	i = 0;
-	ft_printf("%d\n", ft_strlen(str));
 	if (ft_strlen(str) < 3 || ft_strlen(str) > 4)
 		print_error3(str, a, b);
-	if (str[0] != 's' || str[0] != 'r' || str[0] != 'p')
+	if (str[0] != 's' && str[0] != 'r' && str[0] != 'p')
 		print_error3(str, a, b);
-	i++;
-	if (str[i] == 'a')
+	if (str[1] == 'a')
 		a_instructions(str[0], a, b);
-	else if (str[i] == 'b')
+	else if (str[1] == 'b')
 		b_instructions(str[0], a, b);
-	else if (str[i] == 'r')
+	else if (str[1] == 'r')
 	{
 		if (str[0] == 'r')
 			r_instructions(str, a, b);
+		else
+			print_error3(str, a, b);
+	}
+	else if (str[1] == 's')
+	{
+		if (str[0] == 's')
+			ss_checker(a, b);
 		else
 			print_error3(str, a, b);
 	}
