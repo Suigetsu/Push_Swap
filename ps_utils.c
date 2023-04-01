@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 07:00:09 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/31 07:44:05 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/01 11:48:51 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static int	*sort_arr(int *arr, int len)
 	int	temp;
 
 	i = 0;
+	temp = 0;
 	while (i < len)
 	{
 		j = 0;
@@ -87,7 +88,7 @@ void	assign_value(t_stack **head)
 	int		i;
 
 	i = 0;
-	arr = (int *)malloc(linkedlen(*head) * sizeof(int) + 1);
+	arr = ft_calloc(linkedlen(*head), (sizeof(int) + 1));
 	temp = *head;
 	while (temp != NULL)
 	{
@@ -104,4 +105,5 @@ void	assign_value(t_stack **head)
 		temp->value = i;
 		temp = temp->next;
 	}
+	free (arr);
 }

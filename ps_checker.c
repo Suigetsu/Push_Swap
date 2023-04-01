@@ -6,11 +6,21 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 09:48:46 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/04/01 10:54:32 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/01 12:25:11 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+void	printlist(t_stack **a)
+{
+	while (*a != NULL)
+	{
+		ft_printf("%d ", (*a)->data);
+		*a = (*a)->next;
+	}
+	ft_printf("\n");
+}
 
 void	check_op(t_data *data, t_stack **a, t_stack **b)
 {
@@ -21,6 +31,7 @@ void	check_op(t_data *data, t_stack **a, t_stack **b)
 	{
 		if (is_sorted(*a) == 0)
 		{
+			printlist(a);
 			free_nodes(a);
 			ft_printf("OK\n");
 			exit (0);
@@ -49,6 +60,7 @@ int	main(int ac, char **av)
 	data.str = get_next_line(0);
 	while (data.str)
 		check_op(&data, &a, &b);
+	printlist(&a);
 	free_nodes(&a);
 	ft_printf("KO\n");
 	return (0);
