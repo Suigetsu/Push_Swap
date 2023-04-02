@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 07:00:09 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/04/01 11:48:51 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/02 06:47:17 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ int	is_sorted(t_stack *a_head)
 	temp = a_head;
 	while (temp->next != NULL)
 	{
-		if (temp->data > temp->next->data \
-			|| (temp->data < temp->next->data \
-				&& (temp->next->data - temp->data != 1)))
+		if (temp->value > temp->next->value)
 			return (1);
 		temp = temp->next;
 	}

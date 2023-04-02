@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:35:18 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/31 10:14:10 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/02 13:54:24 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,14 @@ void	sort_args(t_stack **a, t_stack **b, t_data *data)
 	if (data->count > 3 && data->count <= 5)
 		sort_four_five(a, b);
 	if (data->count > 5)
+	{
+		if (is_sorted(*a) == 0)
+		{
+			free_nodes(a);
+			exit (0);
+		}
 		range_algo(a, b, data);
+	}
 }
 
 int	main(int ac, char **av)
