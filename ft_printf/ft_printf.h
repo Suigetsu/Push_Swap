@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 00:09:49 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/02/25 12:55:50 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/03 06:58:34 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
-# include <string.h>
 
 int		ft_printf(const char *format, ...);
 int		ft_puthex(unsigned int n);
