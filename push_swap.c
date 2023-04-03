@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:35:18 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/04/02 13:54:24 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/03 09:03:22 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int ac, char **av)
 	data.i = 1;
 	while (data.i < ac)
 		to_integer(av[data.i++], &data, &a);
-	check_duplicated(a, &data);
+	check_duplicated(&a, &data);
 	assign_value(&a);
 	assign_index(&a);
 	sort_args(&a, &b, &data);

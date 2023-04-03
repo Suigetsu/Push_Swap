@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:23:38 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/04/02 10:01:05 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/03 09:42:26 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct s_data
 {
 	int		i;
 	int		j;
+	int		index1;
+	int		index2;
 	int		count;
 	int		*integer;
 	int		min_range;
@@ -57,7 +59,7 @@ void	swap_b(t_stack **b_head);
 void	ss(t_stack **a_head, t_stack **b_head);
 void	create_node(t_stack **head, int data);
 void	to_integer(char	*str, t_data *data, t_stack **stack_a);
-void	check_duplicated(t_stack *stack_a, t_data *data);
+void	check_duplicated(t_stack **stack_a, t_data *data);
 int		linkedlen(t_stack *stack_a);
 int		is_sorted(t_stack *a_head);
 void	assign_index(t_stack **head);

@@ -6,15 +6,15 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:02:15 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/04/02 13:52:05 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/03 09:48:43 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print_error2(t_data *data, t_stack *a)
+static void	print_error2(t_data *data, t_stack **a)
 {
-	free_nodes(&a);
+	free_nodes(a);
 	free (data->integer);
 	ft_printf("Error.\n");
 	exit (1);
@@ -54,31 +54,31 @@ void	to_integer(char	*str, t_data *data, t_stack **stack_a)
 	free (data->split);
 }
 
-void	check_duplicated(t_stack *stack_a, t_data *data)
+void	check_duplicated(t_stack **stack_a, t_data *data)
 {
-	int		i;
-	int		j;
+	t_stack	*temp;
 
-	i = 0;
-	data->integer = ft_calloc((linkedlen(stack_a) + 1), sizeof(int));
-	while (stack_a != NULL)
+	temp = *stack_a;
+	data->integer = ft_calloc((linkedlen(*stack_a) + 1), sizeof(int));
+	while (temp != NULL)
 	{
-		data->integer[i++] = stack_a->data;
-		stack_a = stack_a->next;
+		data->integer[data->index1++] = temp->data;
+		temp = temp->next;
 	}
-	i = 0;
-	while (i < data->count)
+	data->index1 = 0;
+	while (data->index1 < data->count)
 	{
-		j = 0;
-		while (j < data->count)
+		data->index2 = 0;
+		while (data->index2 < data->count)
 		{
-			if (i == j)
-				j++;
-			if (data->integer[i] == data->integer[j] && data->integer[j])
+			if (data->index1 == data->index2)
+				data->index2++;
+			if (data->integer[data->index1] == data->integer[data->index2] \
+				&& data->integer[data->index2])
 				print_error2(data, stack_a);
-			j++;
+			data->index2++;
 		}
-		i++;
+		data->index1++;
 	}
 	free (data->integer);
 }

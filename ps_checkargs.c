@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_checkargs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 21:39:48 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/25 13:36:09 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:04:56 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	print_error(t_data *data)
 	int	i;
 
 	i = 0;
-	(void)data;
 	while (data->split[i])
 		free (data->split[i++]);
 	free (data->split);
@@ -27,11 +26,13 @@ static void	print_error(t_data *data)
 
 static void	check_num(char *str, t_data *data)
 {
-	int				i;
-	unsigned int	limit;
+	int			i;
+	long long	limit;
 
 	i = 0;
 	limit = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
 	if (!(str[i] >= '0' && str[i] <= '9'))
@@ -41,7 +42,7 @@ static void	check_num(char *str, t_data *data)
 		limit = limit * 10 + str[i] - '0';
 		i++;
 	}
-	if (limit > 2147483647)
+	if (!(limit <= 2147483647 && limit >= -2147483648))
 		print_error(data);
 	if (str[i] != '\0')
 		print_error(data);
