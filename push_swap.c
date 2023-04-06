@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:35:18 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/04/03 09:03:22 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:24:26 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void	sort_args(t_stack **a, t_stack **b, t_data *data)
 			free_nodes(a);
 			exit (0);
 		}
-		range_algo(a, b, data);
+		else if (inverted_sorting(a) == 0)
+			push_and_rotate(a, b);
+		else
+			range_algo(a, b, data);
 	}
 }
 

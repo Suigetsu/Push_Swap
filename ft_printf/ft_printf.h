@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 00:09:49 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/04/03 06:58:34 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:51:54 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdarg.h>
-# include <stdlib.h>
 
 int		ft_printf(const char *format, ...);
 int		ft_puthex(unsigned int n);

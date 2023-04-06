@@ -6,11 +6,36 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 06:57:37 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/03/31 07:55:35 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:32:42 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	inverted_sorting(t_stack **a)
+{
+	t_stack	*temp;
+
+	temp = *a;
+	while (temp->next != NULL)
+	{
+		if (temp->value < temp->next->value)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
+
+void	push_and_rotate(t_stack **a, t_stack **b)
+{
+	while (linkedlen(*a) > 0)
+		push_b(a, b);
+	while (linkedlen(*b) > 0)
+	{
+		rrb(b);
+		push_a(a, b);
+	}
+}
 
 void	from_a_to_b(t_stack **a, t_stack **b, t_data *data)
 {

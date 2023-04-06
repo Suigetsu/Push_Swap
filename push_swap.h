@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:23:38 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/04/03 09:42:26 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:31:38 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,7 @@ int		find_min(t_stack **a);
 int		find_max(t_stack **a);
 void	free_nodes(t_stack **a);
 void	sort_args(t_stack **a, t_stack **b, t_data *data);
+int		inverted_sorting(t_stack **a);
+void	push_and_rotate(t_stack **a, t_stack **b);
 
 #endif

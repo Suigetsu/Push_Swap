@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 15:02:15 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/04/03 09:48:43 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/06 14:03:32 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void	check_duplicated(t_stack **stack_a, t_data *data)
 		{
 			if (data->index1 == data->index2)
 				data->index2++;
-			if (data->integer[data->index1] == data->integer[data->index2] \
-				&& data->integer[data->index2])
+			if (data->integer[data->index1] == data->integer[data->index2]
+				&& data->index2 < data->count)
 				print_error2(data, stack_a);
 			data->index2++;
 		}
