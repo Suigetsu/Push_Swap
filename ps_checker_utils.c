@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 11:35:56 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/04/01 10:47:05 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/08 14:10:58 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,13 @@ static void	r_instructions(char *str, t_stack **a, t_stack **b)
 
 void	is_instructions(char *str, t_stack **a, t_stack **b)
 {
-	if (ft_strlen(str) < 3 || ft_strlen(str) > 4)
+	if (!(ft_strlen(str) >= 3 && ft_strlen(str) <= 4))
 		print_error3(str, a, b);
 	if (str[0] != 's' && str[0] != 'r' && str[0] != 'p')
 		print_error3(str, a, b);
-	if (str[1] == 'a')
+	if (str[1] == 'a' && str[2] == '\n')
 		a_instructions(str[0], a, b);
-	else if (str[1] == 'b')
+	else if (str[1] == 'b' && str[2] == '\n')
 		b_instructions(str[0], a, b);
 	else if (str[1] == 'r')
 	{
@@ -84,7 +84,7 @@ void	is_instructions(char *str, t_stack **a, t_stack **b)
 		else
 			print_error3(str, a, b);
 	}
-	else if (str[1] == 's')
+	else if (str[1] == 's' && str[2] == '\n')
 	{
 		if (str[0] == 's')
 			ss_checker(a, b);

@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 21:39:48 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/04/06 14:03:42 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/08 13:51:49 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,25 @@ static void	print_error(t_data *data)
 static void	check_num(char *str, t_data *data)
 {
 	int			i;
-	long long	limit;
 
 	i = 0;
-	limit = 0;
+	data->limit = 0;
+	data->sign = 1;
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
+	if (str[i - 1] == '-')
+		data->sign *= -1;
 	if (!(str[i] >= '0' && str[i] <= '9'))
 		print_error(data);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		limit = limit * 10 + str[i] - '0';
+		data->limit = data->limit * 10 + str[i] - '0';
 		i++;
 	}
-	if (!(limit <= 2147483647 && limit >= -2147483648))
+	data->limit *= data->sign;
+	if (data->limit > INT_MAX || data->limit < INT_MIN)
 		print_error(data);
 	if (str[i] != '\0')
 		print_error(data);

@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 09:48:46 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/04/03 09:06:14 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/08 14:03:18 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	check_op(t_data *data, t_stack **a, t_stack **b)
 	data->str = get_next_line(0);
 	if (data->str == NULL)
 	{
-		if (is_sorted(*a) == 0)
+		if (is_sorted(*a) == 0 && (linkedlen(*a) == data->len))
 		{
 			free_nodes(a);
 			ft_printf("OK\n");
@@ -75,6 +75,7 @@ int	main(int ac, char **av)
 		to_integer(av[data.i++], &data, &a);
 	check_duplicated(&a, &data);
 	assign_value(&a);
+	data.len = linkedlen(a);
 	if_str_null(&data, &a);
 	while (data.str)
 		check_op(&data, &a, &b);

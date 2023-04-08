@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@1337.student.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:23:38 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/04/06 12:31:38 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/04/08 14:01:45 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,19 @@
 
 typedef struct s_data
 {
-	int		i;
-	int		j;
-	int		index1;
-	int		index2;
-	int		count;
-	int		*integer;
-	int		min_range;
-	int		max_range;
-	char	**split;
-	char	*str;
+	int			i;
+	int			j;
+	int			sign;
+	int			len;
+	long long	limit;
+	int			index1;
+	int			index2;
+	int			count;
+	int			*integer;
+	int			min_range;
+	int			max_range;
+	char		**split;
+	char		*str;
 }				t_data;
 
 typedef struct s_stack
